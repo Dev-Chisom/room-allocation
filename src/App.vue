@@ -11,11 +11,13 @@
             Conference Room
           </label>
           <input
+            v-model="capacity"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="conference-room"
-            type="text"
+            type="number"
             placeholder="Capacity"
           />
+          <p class="text-red-500 text-xs italic pt-4">Error message comes here</p>
         </div>
         <div class="mb-6">
           <label
@@ -24,27 +26,17 @@
           >
             Room One
           </label>
-          <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="room-one"
-            type="room-one"
-            placeholder="Number of guests"
-          />
+          <InputTags v-model="roomOne" />
           <p class="text-red-500 text-xs italic">Error message comes here</p>
         </div>
         <div class="mb-6">
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
-            for="room-two"
+            for="number"
           >
             Room Two
           </label>
-          <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="room-two"
-            type="room-two"
-            placeholder="Number of guests"
-          />
+          <InputTags v-model="roomTwo" />
           <p class="text-red-500 text-xs italic">Error message comes here</p>
         </div>
         <div class="mb-6">
@@ -54,12 +46,7 @@
           >
             Room Three
           </label>
-          <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="room-three"
-            type="room-three"
-            placeholder="Number of guests"
-          />
+          <InputTags v-model="roomThree" />
           <p class="text-red-500 text-xs italic">Error message comes here</p>
         </div>
         <div class="mb-6">
@@ -69,12 +56,7 @@
           >
             Room Four
           </label>
-          <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="room-four"
-            type="room-four"
-            placeholder="Number of guests"
-          />
+          <InputTags v-model="roomFour" />
           <p class="text-red-500 text-xs italic">Error message comes here</p>
         </div>
         <div class="mb-6">
@@ -84,12 +66,7 @@
           >
             Room Five
           </label>
-          <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="room-five"
-            type="room-five"
-            placeholder="Number of guests"
-          />
+          <InputTags v-model="roomFive" />
           <p class="text-red-500 text-xs italic">Error message comes here</p>
         </div>
         <div class="mb-6">
@@ -99,12 +76,7 @@
           >
             Room Six
           </label>
-          <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="room-six"
-            type="room-six"
-            placeholder="Number of guests"
-          />
+          <InputTags v-model="roomSix" />
           <p class="text-red-500 text-xs italic">Error message comes here</p>
         </div>
       </div>
@@ -123,8 +95,24 @@
 </template>
 
 <script>
+import InputTags from "./components/InputTags.vue";
 export default {
   name: "App",
+  components: {
+    InputTags,
+  },
+  data() {
+    return {
+      capacity: null,
+      roomOne: null,
+      roomTwo: null,
+      roomThree: null,
+      roomFour: null,
+      roomFive: null,
+      roomSix: null,
+      tags: ["bar", "foo"],
+    };
+  },
 };
 </script>
 
